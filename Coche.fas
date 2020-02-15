@@ -1,0 +1,48 @@
+(|SYSTEM|::|VERSION| '(20080430.))
+#0Y_ #0Y |CHARSET|::|UTF-8|
+#Y(#:|1 6 (DEFUN BATERIA NIL ...)-1|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|COMMON-LISP-USER|::|BATERIA| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|COMMON-LISP-USER|::|BATERIA|
+       #48Y(00 00 00 00 00 00 00 00 26 01 DA 38 01 31 8E 38 04 31 7F 0F 01 14
+            DC 90 01 31 0A 6B 01 DC 90 01 32 0A 00 19 01 DD 38 01 31 8E 19 01
+            2E 04 19 01)
+       ("Cuantos volteos tiene su bateria?" |COMMON-LISP-USER|::|B| 10.
+        "Cambie su bateria" |COMMON-LISP-USER|::|COMBUSTIBLE|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+       |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|8 13 (DEFUN COMBUSTIBLE NIL ...)-2|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|COMMON-LISP-USER|::|COMBUSTIBLE| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|COMMON-LISP-USER|::|COMBUSTIBLE|
+       #48Y(00 00 00 00 00 00 00 00 26 01 DA 38 01 31 8E 38 04 31 7F 0F 01 14
+            DC 90 01 2F 0F 6B 01 DE 91 01 2F 0B CA 14 38 01 31 8E 19 01 C8 1B
+            76 00 19 01)
+       ("Compruebe el indicador de combustible (Ingrese 1 si esta vacio o 2 si esta lleno"
+        |COMMON-LISP-USER|::|C| 1. "Llene su deposito de combustible" 2.
+        "Su coche no sirve, mandelo al taller")
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|) ()
+       |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|15 15 (PRINT "1.Si    2.No")-3|
+   #17Y(00 00 00 00 00 00 00 00 20 01 DA 38 01 31 8E 19 01) ("1.Si    2.No")
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|16 16 (PRINT "Arranca su coche?")-4|
+   #17Y(00 00 00 00 00 00 00 00 20 01 DA 38 01 31 8E 19 01)
+   ("Arranca su coche?")
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|17 17 (SETQ A (READ))-5|
+   #18Y(00 00 00 00 00 00 00 00 20 01 38 04 31 7F 0F 00 19 01)
+   (|COMMON-LISP-USER|::|A|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|18 20 (COND (# #) (# #))-6|
+   #38Y(00 00 00 00 00 00 00 00 20 01 6B 00 DB 90 01 2F 0C 6B 00 DD 33 01 2F 1F
+        0B 2E 04 19 01 DC 38 01 31 8E 19 01 19 01)
+   (|COMMON-LISP-USER|::|A| 1. "Su coche esta en buen estado" 2.
+    |COMMON-LISP-USER|::|BATERIA|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|21 21 (SETQ W (READ))-7|
+   #18Y(00 00 00 00 00 00 00 00 20 01 38 04 31 7F 0F 00 19 01)
+   (|COMMON-LISP-USER|::|W|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
