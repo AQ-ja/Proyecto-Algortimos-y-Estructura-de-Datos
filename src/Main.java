@@ -12,7 +12,7 @@ public class Main {
 		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
-	    String linea, programa = " ";
+	    String linea, programa = "";
 	 	ArrayList<String> funcion = null;
 	 	CalculosAritmeticos opA = new CalculosAritmeticos();
 	 	Interprete inter = new Interprete();
@@ -42,7 +42,10 @@ public class Main {
 			}
 //----------------------------------------PRESENTACION AL USUARIO
 		System.out.println("Programa ingresado:" + programa);
-		System.out.println(">>Lisp " + inter.funcion(programa)+ " grados Centigrados");
+		//System.out.println(">>Lisp " + inter.funcion(programa)+ " grados Centigrados");
+		
+		System.out.println(opA.Calculo(programa));
+		
 		
 		/*if(words.contains("Cond")){
 			condicionales = New Condicionales(opera);

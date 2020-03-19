@@ -1,5 +1,4 @@
 import java.text.DecimalFormat;
-import java.util.Stack;
 
 public class CalculosAritmeticos {
 	
@@ -31,7 +30,7 @@ public class CalculosAritmeticos {
 					operaciones.push(String.valueOf(op1-op2));
     			}catch(Exception e) {
     				//e.printStackTrace();
-    				operaciones.push("NO");
+    				//operaciones.push("NO");
     				}
 		}else 
 			if(calculos[(calculos.length-1)-a].equals("*")) {
