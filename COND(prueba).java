@@ -40,17 +40,17 @@ public class Condicionales {
                 break;
             }
 
-            if(opera.contains("Equal")){
+            if(opera.contains("equal")){
                 System.out.println(Fl.equals((Integer.parseInt(a)),Integer.parseInt(b)));
                 break;
             }
 
-            if(opera.contains("Atom")){
+            if(opera.contains("atom")){
                 System.out.println(Fl.atom(o));
                 break;
             }
 
-            if(opera.contains("List")){
+            if(opera.contains("list")){
                 System.out.println(Fl.lista(o));
                 break;
             }
