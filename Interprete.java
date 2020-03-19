@@ -68,7 +68,7 @@ public class Interprete<K extends Comparable<K>,V>
 					fun = fun.trim();
 					System.out.println("Key: " + fun);
 				}
-				if(function[a].toLowerCase().startsWith("("+fun)) {
+				if(function[a].toLowerCase().startsWith("("+fun) && function[a].endsWith(")")) {
 					param = function[a].toLowerCase().replace(")","");
 					parametro = param.split(" ");
 					System.out.println("Parametro: "+parametro[1]);
