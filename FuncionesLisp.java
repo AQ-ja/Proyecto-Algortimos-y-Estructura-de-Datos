@@ -70,5 +70,22 @@ public class FuncionesLisp {
             return false;
         }
     }
+	
+	
+	public ArrayList<String> list(String val){
+		ArrayList<String> resultado = null;
+		resultado.add(val);
+        return resultado;
+    }
+	
+	public <E> boolean atom(E val){
+		if (val instanceof ArrayList) {
+			return false;
+		}else {
+			return true;
+		}
+		
+        
+    }
 }
 
