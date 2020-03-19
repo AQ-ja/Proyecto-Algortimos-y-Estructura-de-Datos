@@ -43,6 +43,7 @@ public class Main {
 //----------------------------------------PRESENTACION AL USUARIO
 		System.out.println("Programa ingresado:" + programa);
 		System.out.println(">>Lisp " + inter.funcion(programa));
+		
 		/*if(words.contains("Cond")){
 			condicionales = New Condicionales(opera);
 		}
