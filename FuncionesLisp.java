@@ -48,8 +48,27 @@ public class FuncionesLisp {
 		return "funcion agregada";
 	}
 	
+	//Intento de equivalencias entre java y lisp
+	// este seria el mas facil xd. 
+	public boolean equals(E valorA, E valorB){ //Tenemos 2 genericos y si son iguales regresa true, sino false
+        return  valorA.equals(valorB);
+    }
 	
-	
-	
+
+	public Boolean mayorMenor(int valorA, int valorB ){
+        if(valorA > valorB){
+            return true;
+        }else{
+            return false;
+        }
+	}
+
+	public Boolean menorMayor(int valorA, int valorB ){
+        if(valorA < valorB){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
