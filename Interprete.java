@@ -6,18 +6,20 @@ public class Interprete<K extends Comparable<K>,V>
 	
 	protected Map<K,ArrayList<String>> funciones = new HashMap<K,ArrayList<String>>();
 	protected  ArrayList<String> value = new ArrayList<>();
-	String[] function = null;
 	protected Map<K,V> llamadas= new HashMap<K,V>();
+	protected CaculosAritmeticos opA = new CaculosAritmeticos();
+	protected Stack resultados = new Stack();
+	String[] function = null;
 	K key,keyC;
 	V valueC;
 	
 	
-	public void funcion(String programa) {
-		
+	public String funcion(String programa) {
+		String resultado = "";
 		String fun = " ";
 		String line;
 		line = programa.replace("(", ",(");
-		System.out.println(line.trim());
+		//System.out.println(line.trim());
 		function = line.split(",");
 		String nParametro = function[2].replace(")"," ");
 		nParametro = nParametro.replace("(", "");
@@ -25,21 +27,27 @@ public class Interprete<K extends Comparable<K>,V>
 		
 		for(int a = 0; a < function.length; a++) {
 			
-			System.out.println("Funcion:" + function[a]);
+			//System.out.println("Funcion:" + function[a]);
 			
 			if(function[a].toLowerCase().startsWith("(defun")) {
 				fun = function[a].toLowerCase().replace("(defun", "");
 				key = (K) fun.trim();
 				String llave = (String) key;
-				System.out.println("Key: " + llave);
+				//System.out.println("Key: " + llave);
 			}else {
 				function[a] = function[a].replace(" "+nParametro,parametro);
 				value.add(function[a].trim());
 			}
+			if(opAritmetica()!= 0)
+				resultados.push(opAritmetica());
+			if(function[a].toLowerCase().startsWith("(print")) {
+				resultado = String.valueOf(resultados.pop());
+			}
 			
 		}
 			funciones.put(key, value);	
-			System.out.println("Llave: " + funciones.get(key));
+			//System.out.println("Llave: " + funciones.get(key));
+			return resultado;
 	}
 	
 	
@@ -54,8 +62,7 @@ public class Interprete<K extends Comparable<K>,V>
 		return parametro = false;
 	}
 	
-	public String asignacionParametro(String programa)
-	{
+	public String asignacionParametro(String programa){
 		String fun = " ";
 		String param;
 		String [] parametro = null;
@@ -66,18 +73,33 @@ public class Interprete<K extends Comparable<K>,V>
 				if(function[a].toLowerCase().startsWith("(defun")) {
 					fun = function[a].toLowerCase().replace("(defun", "");
 					fun = fun.trim();
-					System.out.println("Key: " + fun);
+					//System.out.println("Key: " + fun);
 				}
 				if(function[a].toLowerCase().startsWith("("+fun) && function[a].endsWith(")")) {
 					param = function[a].toLowerCase().replace(")","");
 					parametro = param.split(" ");
-					System.out.println("Parametro: "+parametro[1]);
-			}
+					//System.out.println("Parametro: "+parametro[1]);
+				}
 				
 			}
 		}
 			return " " +parametro[1]+" ";
 	}
+	
+	public double opAritmetica() {
+		
+		String operacion = " ";
+		for(int a = 0; a < function.length;a++) {
+			if(function[a].startsWith("(/") || function[a].startsWith("(*") || function[a].startsWith("(+") || function[a].startsWith("(-")) {
+				operacion = function[a] +" "+ function[a+1];
+				//System.out.println("Operacion: "+operacion);
+				a = function.length;
+				}
+		}
+		return opA.Calculo(operacion);
+	}
+	
+	
 
 	public static List<String> GetExpression(List<String> list ){
 		int contparen = 1; 
