@@ -1,8 +1,10 @@
+import java.text.DecimalFormat;
 
 public class CaculosAritmeticos {
 	
-
-	public double definir(String operacion) {
+	double resultado = 0;
+	
+	public void definir(String operacion) {
 		
 		String line = operacion.replace("(", "");
 		line = line.replace(")","");
@@ -53,14 +55,19 @@ public class CaculosAritmeticos {
 
 	}
 		
-		return Double.parseDouble(operaciones.pop());
+		resultado = Double.parseDouble(operaciones.pop());
 
 	}	
 	
 	public Double Calculo(String operacion) {
-		
-		return definir(operacion);
+		definir(operacion);
+		resultado = Math.round(resultado * 100) / 100d;
+		return resultado;
 	}
 	
+	
+	
+	
+
 
 }
