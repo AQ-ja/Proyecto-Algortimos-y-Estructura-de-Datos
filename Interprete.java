@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class pruebas<K,V> {
+public class Interprete<K,V> {
 	
 	
 	protected Map<K,ArrayList<String>> funciones;

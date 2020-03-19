@@ -12,10 +12,10 @@ import java.util.HashMap;
 public class FuncionesLisp  {
 	private HashMap<String,String> funciones = new HashMap<String,String>();
 	private HashMap<String,String> variables = new HashMap<String,String>();
-	private String FuncionesLisp;
-	private String Condicionales;
-	private ArrayList<String> funK = new ArrayList<String> ();
-	private ArrayList<String> funV = new ArrayList<String> ();
+	//private String FuncionesLisp;
+	//private String Condicionales;
+	//private ArrayList<String> funK = new ArrayList<String> ();
+	//private ArrayList<String> funV = new ArrayList<String> ();
 	/*
 	public FuncionesLisp () {
 		funK.add("defun");
@@ -56,6 +56,26 @@ public class FuncionesLisp  {
 		resultado.add(val);
         return resultado;
     }
+	public boolean equals(String valorA, String valorB){ //Tenemos 2 genericos y si son iguales regresa true, sino false
+        return  valorA.equals(valorB);
+    }
+	
+
+	public Boolean mayorMenor(int valorA, int valorB ){
+        if(valorA > valorB){
+            return true;
+        }else{
+            return false;
+        }
+	}
+
+	public Boolean menorMayor(int valorA, int valorB ){
+        if(valorA < valorB){
+            return true;
+        }else{
+            return false;
+        }
+    }
 	public <E> boolean atom(E val){
 		if (val instanceof ArrayList) {
 			return false;
@@ -72,3 +92,4 @@ public class FuncionesLisp  {
 	
 	
 }
+
