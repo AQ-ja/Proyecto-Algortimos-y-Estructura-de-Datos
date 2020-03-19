@@ -54,16 +54,16 @@ public class PruebasVarias {
 			
 		}*/
 		
-		inter.funcion(words);
-		if(inter.funcionP() == true) 
+		System.out.println("Resultado:" + inter.funcion(words));
+		/**if(inter.funcionP() == true) 
 			System.out.println("Hay parametro");
 		else
 			System.out.println("No hay parametro");
-			
+		System.out.println("Resultado: "+inter.opAritmetica());
 		//System.out.println(inter.asignacionParametro(words));
 		inter.asignacionParametro(words);
 		//resultado cuando se mete un texto para calcular su resultado de operacion aritmetica 
-		//System.out.println(opA.Calculo(words));
+		//System.out.println(opA.Calculo(words));*/
 		
 		
 				
