@@ -1,6 +1,7 @@
 import java.text.DecimalFormat;
+import java.util.Stack;
 
-public class CaculosAritmeticos {
+public class CalculosAritmeticos {
 	
 	double resultado = 0;
 	

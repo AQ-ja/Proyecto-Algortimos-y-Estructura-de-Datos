@@ -7,7 +7,7 @@ public class Interprete<K extends Comparable<K>,V>
 	protected Map<K,ArrayList<String>> funciones = new HashMap<K,ArrayList<String>>();
 	protected  ArrayList<String> value = new ArrayList<>();
 	protected Map<K,V> llamadas= new HashMap<K,V>();
-	protected CaculosAritmeticos opA = new CaculosAritmeticos();
+	protected CalculosAritmeticos opA = new CalculosAritmeticos();
 	protected Stack resultados = new Stack();
 	String[] function = null;
 	K key,keyC;

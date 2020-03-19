@@ -2,34 +2,36 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
-public class Main {
+public class Main<New> {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		// TODO Auto-generated method stub
 
-		File archivo = null;
+		final File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
-	    String[] translate = null,inOrder = null;
-	 	String word,key = "",value="",line,traducir = "", espaniol = "",menu,words = null;
-	 	ArrayList<String> funcion = null;
-	 	String contenido = "";
-	 	iStack asignacion = new Stack();
-	 	//Map <String,String> mapa = new Map<String,String>();
-	 	HashMap<String,String> map = new HashMap<String,String>();
+	    final String[] translate = null,inOrder = null;
+	 	String word;
+		final String key = "", value="", line, traducir = "", espaniol = "", menu;
+		String words="";
+	 	final ArrayList<String> funcion = null;
+	 	final Stack asignacion = new Stack();
+	 	final CalculosAritmeticos opA = new CalculosAritmeticos();
+	 	final Interprete inter = new Interprete();
+	 	
 		try {
-			fr = new FileReader ("Prueba 1.lsp");
+			fr = new FileReader ("lisp.txt");
 	        br = new BufferedReader(fr);
 
 	        while((word = br.readLine())!=null) {
-	        	contenido = contenido + word ;
+	        	words = words + word;
 	    
 	        }
 	    }
-			catch(Exception e){
+			catch(final Exception e){
 	        e.printStackTrace();
 	    }finally{
 
@@ -37,47 +39,35 @@ public class Main {
 	            if( null != fr ){
 	                fr.close();
 	            }
-	        }catch (Exception e){
+	        }catch (final Exception e){
 	            e.printStackTrace();
 	        }
 
 			}
 		
-		System.out.println(contenido);
-		line = contenido.replace("(", ",(");
-		translate = line.split(",");
-		System.out.println(" ");
-		System.out.println("Lista de datos separados del programa");
-		for(int i = 1; i< translate.length;i++) {
+
+		}
+		
+		if(words.contains("Cond")){
+			condicionales = New Condicionales(opera);
+		}
+	    } else if (words.contains("<") || words.contains(">") || words.contains("Atom") || words.contains("List") || words.contains("Equal")) {
+		condicionales = new Condicionales("(Cond " + opera + ")");
+
+
+		inter.funcion(words);
+		if(inter.funcionP() == true) 
+			System.out.println("Hay parametro");
+		else
+			System.out.println("No hay parametro");
 			
-			System.out.println(translate[i]);
-			map.put("Llave No." + i, translate[i]);
-		}
-		System.out.println("---------------------------------");
+		//System.out.println(inter.asignacionParametro(words));
+		inter.asignacionParametro(words);
+		//resultado cuando se mete un texto para calcular su resultado de operacion aritmetica 
+		//System.out.println(opA.Calculo(words));
 		
 		
-		System.out.println(map.size());
-		for (HashMap.Entry<String, String> entry:map.entrySet())
-		{
-			System.out.println(entry.getKey() + " " + entry.getValue());
-		}
-		/*for(int a = 1; a < translate.length; a++) {
-			if(translate[a].startsWith("(setq")){
-				asignacion.push(translate[a]);
-				asignacion.push(translate[a+1]);
-				System.out.println("Estos son los valores");
-				System.out.println(asignacion.pop());
-				System.out.println(asignacion.pop());
-			}
-		}*/
-		
-		
-		
-		
-		
-		
+				
 	}
-	
 
 }
-
