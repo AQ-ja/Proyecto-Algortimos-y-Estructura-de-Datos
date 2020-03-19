@@ -79,4 +79,22 @@ public class Interprete<K extends Comparable<K>,V>
 			return " " +parametro[1]+" ";
 	}
 
+	public static List<String> GetExpression(List<String> list ){
+		int contparen = 1; 
+		int ToIndex = list.size();
+		for(int i = 1; (contparen != 0) && (i < list.size()); i++){
+            if(list.get(i).equals("(")){
+				contparen++;	
+			}
+
+			else if(list.get(i).equals(")")){
+				contparen--;
+			}
+			if(contparen == 0 ){
+				ToIndex = i;
+			}
+		}
+		return list.subList(0, ToIndex+1);
+	}
+
 }
