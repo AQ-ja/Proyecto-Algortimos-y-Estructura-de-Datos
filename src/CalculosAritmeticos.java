@@ -9,6 +9,7 @@ public class CalculosAritmeticos {
 		String line = operacion.replace("(", "");
 		line = line.replace(")","");
 		line = line.replaceAll("  ","");
+		//System.out.println(line);
 		Stack<String> operaciones = new Stack();
 		double op1,op2;
 		String[] calculos = line.split(" ");

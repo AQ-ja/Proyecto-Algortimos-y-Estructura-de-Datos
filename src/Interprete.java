@@ -4,25 +4,30 @@ public class Interprete<K extends Comparable<K>,V>
 {
 	
 	
-	protected Map<K,ArrayList<String>> funciones = new HashMap<K,ArrayList<String>>();
-	protected  ArrayList<String> value = new ArrayList<>();
-	protected Map<K,V> llamadas= new HashMap<K,V>();
-	protected CalculosAritmeticos opA = new CalculosAritmeticos();
-	protected Stack resultados = new Stack();
-	String[] function = null;
-	K key,keyC;
-	V valueC;
+	protected Map<K,ArrayList<String>> funciones = new HashMap<K,ArrayList<String>>();//funciones, para poder utilizar recursividad
+	protected  ArrayList<String> value = new ArrayList<>();//guarda el cuerpo de la funcion
+	protected CalculosAritmeticos opA = new CalculosAritmeticos();//instancia para realizar calculos aritmeticos
+	protected Stack resultados = new Stack();//guarda los resultados obtenidos en cada parte del cuerpo de la funcion
+	String[] function = null;//guarda el programa separado por parentesis
+	K key;//nombre de la funcion
 	
-	
+	/**
+	 * Se encarga de hacer todo el cuerpo de la funcion, tecnicamente es todo el traductor cuando el usuario ingresa una funcion
+	 * @pre el main lee el programa que el usuario desea compilar
+	 * @post devuelve el resultado del programa leido	
+	 * @param programa
+	 * @return resultado
+	 */
 	public String funcion(String programa) {
-		String resultado = "";
-		String fun = " ";
-		String line;
-		line = programa.replace("(", ",(");
+		String resultado = "";//resultado que va a devolver
+		String fun = " ";//se utiliza para reemplazar datos (defun por "" y obtener solo el nombre de la funcion
+		String line;//se utiliza para reemplazar datos en todo el programa
+		line = programa.replace("(", ",(");//reemplaza los ( por ,( para despues poder hacer split al string
 		//System.out.println(line.trim());
-		function = line.split(",");
+		function = line.split(",");//hace split al string por medio de las comas agregadas anteriormente
 		String nParametro = function[2].replace(")"," ");
 		nParametro = nParametro.replace("(", "");
+		
 		String parametro = asignacionParametro(programa);
 		
 		for(int a = 0; a < function.length; a++) {
@@ -35,7 +40,10 @@ public class Interprete<K extends Comparable<K>,V>
 				String llave = (String) key;
 				//System.out.println("Key: " + llave);
 			}else {
-				function[a] = function[a].replace(" "+nParametro,parametro);
+				if(funcionP() == true)		
+					function[a] = function[a].replace(" "+nParametro,parametro);
+				else 
+					function[a] = function[a];
 				value.add(function[a].trim());
 			}
 			if(opAritmetica()!= 0)
@@ -50,7 +58,12 @@ public class Interprete<K extends Comparable<K>,V>
 			return resultado;
 	}
 	
-	
+	/**
+	 * Determina si la funcion cuenta con un parametro
+	 * @pre el programa ya se encuentra separado por parentesis
+	 * @post devuelve si el programa cuenta con parametro
+	 * @return parametro
+	 */
 	//determina si la funcion contine parametro
 	public boolean funcionP() {
 		boolean parametro = false;
@@ -62,6 +75,13 @@ public class Interprete<K extends Comparable<K>,V>
 		return parametro = false;
 	}
 	
+	/**
+	 * Si existe parametro asigna el parametro, y sino pos no hace nada
+	 * @pre se ha evaluado si la funcion cuenta con parametros
+	 * @post asigna el parametro en la funcion (si tiene) sino no hace nada
+	 * @param programa
+	 * @return parametro > el parametro a asignar
+	 */
 	public String asignacionParametro(String programa){
 		String fun = " ";
 		String param;
@@ -85,7 +105,12 @@ public class Interprete<K extends Comparable<K>,V>
 		}
 			return " " +parametro[1]+" ";
 	}
-	
+	/**
+	 * Revisa si dentro de la funcion hay una operacion aritmetica y la realiza
+	 * @pre el programa ya se encuentra separado por parentesis
+	 * @post devuelve el resultado de la operacion realizada
+	 * @return resultado
+	 */
 	public double opAritmetica() {
 		
 		String operacion = " ";

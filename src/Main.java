@@ -42,9 +42,16 @@ public class Main {
 			}
 //----------------------------------------PRESENTACION AL USUARIO
 		System.out.println("Programa ingresado:" + programa);
-		//System.out.println(">>Lisp " + inter.funcion(programa)+ " grados Centigrados");
+		inter.funcion(programa);
+		System.out.println(inter.asignacionParametro(programa));
+		/*System.out.println(">>Lisp " + inter.funcion(programa));
+		if(inter.funcionP() == true)
+			System.out.println("Hay parametro");
+		else
+			System.out.println("No hay parametro");
+			*/
 		
-		System.out.println(opA.Calculo(programa));
+		//System.out.println(opA.Calculo(programa));
 		
 		
 		/*if(words.contains("Cond")){
