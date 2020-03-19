@@ -3,24 +3,21 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
-public class Main<New> {
+public class Main {
 
-	public static void main(final String[] args) {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		final File archivo = null;
+		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
-	    final String[] translate = null,inOrder = null;
-	 	String word;
-		final String key = "", value="", line, traducir = "", espaniol = "", menu;
-		String words="";
-	 	final ArrayList<String> funcion = null;
-	 	final Stack asignacion = new Stack();
-	 	final CalculosAritmeticos opA = new CalculosAritmeticos();
-	 	final Interprete inter = new Interprete();
+	    String[] translate = null,inOrder = null;
+	 	String word,key = "",value="",line,traducir = "", espaniol = "",menu,words="";
+	 	ArrayList<String> funcion = null;
+	 	iStack asignacion = new Stack();
+	 	CalculosAritmeticos opA = new CalculosAritmeticos();
+	 	Interprete inter = new Interprete();
 	 	
 		try {
 			fr = new FileReader ("lisp.txt");
@@ -31,7 +28,7 @@ public class Main<New> {
 	    
 	        }
 	    }
-			catch(final Exception e){
+			catch(Exception e){
 	        e.printStackTrace();
 	    }finally{
 
@@ -39,34 +36,22 @@ public class Main<New> {
 	            if( null != fr ){
 	                fr.close();
 	            }
-	        }catch (final Exception e){
+	        }catch (Exception e){
 	            e.printStackTrace();
 	        }
 
 			}
 		
-
-		}
+		System.out.println("Resultado:" + inter.funcion(words));
+		//Codigo a ejecutar
+		/*(DEFUN FTOC (TEMP)    ; farenheit to centrigrados
+		   (/ (- TEMP 32) 1.8))*/
 		
-		if(words.contains("Cond")){
+		/*if(words.contains("Cond")){
 			condicionales = New Condicionales(opera);
 		}
 	    } else if (words.contains("<") || words.contains(">") || words.contains("Atom") || words.contains("List") || words.contains("Equal")) {
-		condicionales = new Condicionales("(Cond " + opera + ")");
-
-
-		inter.funcion(words);
-		if(inter.funcionP() == true) 
-			System.out.println("Hay parametro");
-		else
-			System.out.println("No hay parametro");
-			
-		//System.out.println(inter.asignacionParametro(words));
-		inter.asignacionParametro(words);
-		//resultado cuando se mete un texto para calcular su resultado de operacion aritmetica 
-		//System.out.println(opA.Calculo(words));
-		
-		
+		condicionales = new Condicionales("(Cond " + opera + ")");*/
 				
 	}
 
