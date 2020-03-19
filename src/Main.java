@@ -12,19 +12,18 @@ public class Main {
 		File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
-	    String[] translate = null,inOrder = null;
-	 	String word,key = "",value="",line,traducir = "", espaniol = "",menu,words="";
+	    String linea, programa = " ";
 	 	ArrayList<String> funcion = null;
-	 	iStack asignacion = new Stack();
 	 	CalculosAritmeticos opA = new CalculosAritmeticos();
 	 	Interprete inter = new Interprete();
 	 	
+//-------------------------------------LECTURA DEL PROGRAMA	 	
 		try {
 			fr = new FileReader ("lisp.txt");
 	        br = new BufferedReader(fr);
 
-	        while((word = br.readLine())!=null) {
-	        	words = words + word;
+	        while((linea = br.readLine())!=null) {
+	        	programa = programa + linea;
 	    
 	        }
 	    }
@@ -41,11 +40,9 @@ public class Main {
 	        }
 
 			}
-		
-		System.out.println("Resultado:" + inter.funcion(words));
-		//Codigo a ejecutar
-		/*(DEFUN FTOC (TEMP)    ; farenheit to centrigrados
-		   (/ (- TEMP 32) 1.8))*/
+//----------------------------------------PRESENTACION AL USUARIO
+		System.out.println("Programa ingresado:" + programa);
+		System.out.println(">>Lisp " + inter.funcion(programa)+ " grados Centigrados");
 		
 		/*if(words.contains("Cond")){
 			condicionales = New Condicionales(opera);

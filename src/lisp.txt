@@ -1,0 +1,4 @@
+(DEFUN FTOC (TEMP)
+(/(- TEMP 32) 1.8))
+
+(PRINT (FTOC 5))
