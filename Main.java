@@ -21,7 +21,7 @@ public class Main {
 	 	//Map <String,String> mapa = new Map<String,String>();
 	 	HashMap<String,String> map = new HashMap<String,String>();
 		try {
-			fr = new FileReader ("datos.txt");
+			fr = new FileReader ("Prueba 1.lsp");
 	        br = new BufferedReader(fr);
 
 	        while((word = br.readLine())!=null) {
