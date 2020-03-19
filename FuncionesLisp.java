@@ -13,7 +13,7 @@ public class FuncionesLisp {
 	private HashMap<String,String> funciones = new HashMap<String,String>();
 	private ArrayList<String> funK = new ArrayList<String> ();
 	private ArrayList<String> funV = new ArrayList<String> ();
-	
+	private ArrayList<String> variables = new ArrayList<String> ();
 	public FuncionesLisp () {
 		funK.add("defunK");
 		funK.add("cond");
@@ -87,5 +87,8 @@ public class FuncionesLisp {
 		
         
     }
+	public void setq(String cadena) {
+		variables.add(cadena);
+	}
 }
 
