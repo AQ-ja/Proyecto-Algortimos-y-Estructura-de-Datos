@@ -55,8 +55,22 @@ public class Main {
 
 			}
 //----------------------------------------PRESENTACION AL USUARIO
-		System.out.println("Programa ingresado:" + programa);
-		System.out.println(">>Lisp " + inter.funcion(programa));
+		System.out.println("------------INTERPRETE LISP AlDiOr--------");
+		System.out.println("*TENGA PRESENTE que si desea realizar una operacion aritmetica tome en cuenta las siguientes instrucciones de sintaxis: ");			
+		System.out.println("-No dejar espacios entre un operador y un parentesis: (/(* 5 9) 5)");			
+		System.out.println("-Cuando se cierra un parentesis y a continuacion va un numero dejar un espacio de por medio:(/(* 5 9) 5) ");			
+		System.out.println("*RECUERDE es unicamente una version Beta del interprete por lo tanto, unicamente realiza operaciones y funciones basicas");			
+			if(programa.toLowerCase().startsWith("(defun")){
+				System.out.println("La funcion ingresada fue: "+programa);
+				System.out.println(">>Lisp " + inter.funcion(programa));
+			}else if(programa.startsWith("(/") || programa.startsWith("(*") ||programa.startsWith("(-") ||programa.startsWith("(+")) {
+				System.out.println("La operacion aritmetica ingresada fue: ");
+				System.out.println(">>Lisp " + opA.Calculo(programa));
+			}else if(programa.startsWith("(cond")) {
+			
+			}else if(programa.toLowerCase().startsWith("(atom") || programa.toLowerCase().startsWith("(list") || programa.toLowerCase().startsWith("(equal")) {
+			
+			}
 		
 				
 		}
