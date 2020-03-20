@@ -25,13 +25,12 @@ public class Interprete<K extends Comparable<K>,V>
 		line = programa.replace("(", ",(");//reemplaza los ( por ,( para despues poder hacer split al string
 		//System.out.println(line.trim());
 		function = line.split(",");//hace split al string por medio de las comas agregadas anteriormente
-		String nParametro = function[2].replace(")"," ");
+		String nParametro = function[2].replace(")","");
 		nParametro = nParametro.replace("(", "");
-		
-		String parametro = asignacionParametro(programa);
+		String parametro = asignacionParametro(programa).trim();
 		
 		for(int a = 0; a < function.length; a++) {
-			
+						
 			//System.out.println("Funcion:" + function[a]);
 			
 			if(function[a].toLowerCase().startsWith("(defun")) {
@@ -39,20 +38,13 @@ public class Interprete<K extends Comparable<K>,V>
 				key = (K) fun.trim();
 				String llave = (String) key;
 				//System.out.println("Key: " + llave);
-			}else {
-				if(funcionP() == true)		
-					function[a] = function[a].replace(" "+nParametro,parametro);
-				else 
-					function[a] = function[a];
-				value.add(function[a].trim());
+			}else {	
+					function[a] = function[a].replace(nParametro,parametro);
+					value.add(function[a].trim());
 			}
-			if(opAritmetica()!= 0)
-				resultados.push(opAritmetica());
-			if(function[a].toLowerCase().startsWith("(print")) {
-				resultado = String.valueOf(resultados.pop());
-			}
-			
+	
 		}
+			resultado = String.valueOf(opAritmetica());
 			funciones.put(key, value);	
 			//System.out.println("Llave: " + funciones.get(key));
 			return resultado;
@@ -111,19 +103,18 @@ public class Interprete<K extends Comparable<K>,V>
 	 * @post devuelve el resultado de la operacion realizada
 	 * @return resultado
 	 */
-	public double opAritmetica() {
+	public Double opAritmetica() {
 		
 		String operacion = " ";
 		for(int a = 0; a < function.length;a++) {
 			if(function[a].startsWith("(/") || function[a].startsWith("(*") || function[a].startsWith("(+") || function[a].startsWith("(-")) {
 				operacion = function[a] +" "+ function[a+1];
-				//System.out.println("Operacion: "+operacion);
+				//System.out.println("Operacion V: "+operacion);
 				a = function.length;
 				}
 		}
 		return opA.Calculo(operacion);
 	}
-	
 	
 
 	public static List<String> GetExpression(List<String> list ){
