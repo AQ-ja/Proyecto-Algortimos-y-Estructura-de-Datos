@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import sun.rmi.runtime.NewThreadAction;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -13,7 +15,7 @@ public class Main {
 	    FileReader fr = null;
 	    BufferedReader br = null;
 	    String linea, programa = "";
-	 	ArrayList<String> funcion = null;
+	 	ArrayList<ArrayList<String>> funcion = null;
 	 	CalculosAritmeticos opA = new CalculosAritmeticos();
 	 	Interprete inter = new Interprete();
 	 	
@@ -44,12 +46,12 @@ public class Main {
 		System.out.println("Programa ingresado:" + programa);
 		System.out.println(">>Lisp " + inter.funcion(programa));
 		
-		/*if(words.contains("Cond")){
-			condicionales = New Condicionales(opera);
-		}
-	    } else if (words.contains("<") || words.contains(">") || words.contains("Atom") || words.contains("List") || words.contains("Equal")) {
-		condicionales = new Condicionales("(Cond " + opera + ")");*/
+		try{
+			funcion.add(NewTryCond.Fcond(funcion));
+		} catch (Exception e) {	
 				
 	}
+
+	
 
 }
