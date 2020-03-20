@@ -59,7 +59,7 @@ public class Main {
 		System.out.println("*TENGA PRESENTE que si desea realizar una operacion aritmetica tome en cuenta las siguientes instrucciones de sintaxis: ");			
 		System.out.println("-No dejar espacios entre un operador y un parentesis: (/(* 5 9) 5)");			
 		System.out.println("-Cuando se cierra un parentesis y a continuacion va un numero dejar un espacio de por medio:(/(* 5 9) 5) ");			
-		System.out.println("*RECUERDE es unicamente una version Beta del interprete por lo tanto, unicamente realiza operaciones y funciones basicas");			
+		System.out.println("*RECUERDE es unicamente una version Beta del interprete por lo tanto, solo realiza operaciones y funciones basicas");			
 			if(programa.toLowerCase().startsWith("(defun")){
 				System.out.println("La funcion ingresada fue: "+programa);
 				System.out.println(">>Lisp " + inter.funcion(programa));
