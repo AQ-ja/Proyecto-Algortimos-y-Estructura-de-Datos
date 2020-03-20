@@ -4,6 +4,14 @@ public class CalculosAritmeticos {
 	
 	double resultado = 0;
 	
+	/**
+	 * Realiza una operacion aritmetica prefix que se le pase
+	 * @pre se guarda la operacion aritmetica en una sola cadena de texto
+	 * @post cambia el valor de la variable resultado por el resultado de la operacion
+	 * que se le ingreso
+	 * @param operacion--> es la operacion que se desea realizar
+	 */
+	
 	public void definir(String operacion) {
 		
 		String line = operacion.replace("(", "");
@@ -60,6 +68,13 @@ public class CalculosAritmeticos {
 
 	}	
 	
+	/**
+	 * Devuelve el resultado de la operacion aritmetica realizada anteriormente redondeandolo a dos decimales
+	 * @pre se realizo la operacion aritmetica
+	 * @post Devuelve el resultado de la operacion redondeado a dos decimales
+	 * @param operacion
+	 * @return resultado
+	 */
 	public Double Calculo(String operacion) {
 		definir(operacion);
 		resultado = Math.round(resultado * 100) / 100d;
