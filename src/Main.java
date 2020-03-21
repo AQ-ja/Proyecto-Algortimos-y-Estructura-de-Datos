@@ -77,8 +77,10 @@ public class Main {
 				//System.out.println(">>Lisp " + conds.str(programa));
 			}else if(programa.toLowerCase().startsWith("(atom") || programa.toLowerCase().startsWith("(list") || programa.toLowerCase().startsWith("(equal")) {
 				if (programa.toLowerCase().startsWith("(atom")) {
-					System.out.println(">>Lisp " + lisp.atom(programa));
-					
+					System.out.println(">>Lisp " + lisp.atom(programa));					
+				}else if (programa.toLowerCase().startsWith("(list")) {	
+					String [] lista = lisp.list(programa.substring(6,programa.length()-2));
+					System.out.println(">>Lisp " + lista[0]);					
 				}
 			}
 		

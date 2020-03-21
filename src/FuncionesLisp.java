@@ -74,9 +74,9 @@ public class FuncionesLisp  {
 	 * @return True si es un atom, False si no es un atom
 	 */
 	public <E> boolean atom(E val){
-		int contador = 0;
-		int contador2 = 0;
-		String[] list = null;
+		int contador = 0; //Variable que guardara la pocicion del ultimo parentesis de la condicional atom, en dado caso hubiera un list
+		int contador2 = 0; //Variable que guarda la posicion en donde empieza la creacion de la lista
+		String[] list = null; //Variable que guardara la lista, en caso de que hubiera una
 		for (int i = 0; i< ((String) val).length(); i++) {						
 			if (((String) val).substring(i, i + 1).equals("(")) {
 				contador = i;							
@@ -85,12 +85,14 @@ public class FuncionesLisp  {
 				break;
 			}						
 		}
+		//Si esta la creacion de la lista en el atom...
 		if (contador > 5) {
 			list = list(((String) val).substring(contador + 6, contador2));
 		}							
 		if (list instanceof String []) {
 			return false;
-		}else {
+		}//Si no se creo ninguna lista
+		else {
 			return true;
 		}
 		
