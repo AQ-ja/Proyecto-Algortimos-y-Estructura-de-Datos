@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class NewTryCond {
-public static String Fcond(ArrayList<ArrayList<String>> listado) {
+public static String str(ArrayList<ArrayList<String>> listado) {
 		String s = "";
 		for(int i=0; i<listado.size();i++){
 			if(listado.get(i).contains("cond")){
@@ -189,5 +189,7 @@ public static String Fcond(ArrayList<ArrayList<String>> listado) {
 		
 		}
 		return "Fallo funcion cond";
-	}	
+	}
+
+
 }

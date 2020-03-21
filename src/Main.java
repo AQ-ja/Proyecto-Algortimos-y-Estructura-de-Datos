@@ -10,32 +10,33 @@ import sun.rmi.runtime.NewThreadAction;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		// TODO Auto-generated method stub
 
-		File archivo = null;
+		final File archivo = null;
 	    FileReader fr = null;
 	    BufferedReader br = null;
 		String linea, programa = "";
-		ArrayList<ArrayList<String>> Arrpro = new ArrayList<ArrayList<String>>();
-	 	ArrayList<String> funcion = null;
-	 	CalculosAritmeticos opA = new CalculosAritmeticos();
-		 Interprete inter = new Interprete();
-		 NewTryCond fCond = new NewTryCond();
+		final ArrayList<ArrayList<String>> Arrpro  = new ArrayList<ArrayList<String>>();
+	 	final ArrayList<String> funcion = null;
+	 	final CalculosAritmeticos opA = new CalculosAritmeticos();
+		 final Interprete inter = new Interprete();
+		 final NewTryCond conds = new NewTryCond();
+		 final StringBuffer sb = new StringBuffer();
+      
 	 	
 //-------------------------------------LECTURA DEL PROGRAMA	 	
 		try {
 			fr = new FileReader ("lisp.txt");
 			br = new BufferedReader(fr);
-			Arrpro = new ArrayList<ArrayList<String>>();
-			System.out.println(Arrpro);
 
 	        while((linea = br.readLine())!=null) {
 	        	programa = programa + linea;
 	    
-	        }
+			} 
+			
 	    }
-			catch(Exception e){
+			catch(final Exception e){
 	        e.printStackTrace();
 	    }finally{
 
@@ -43,15 +44,15 @@ public class Main {
 	            if( null != fr ){
 	                fr.close();
 	            }
-	        }catch (Exception e){
+	        }catch (final Exception e){
 	            e.printStackTrace();
 			}
 			
-			try{
-				funcion.add(NewTryCond.Fcond(Arrpro));
+			//try{
+			//	funcion.add(NewTryCond.Fcond(Arrpro));
 				//programa.add(NewTryCond.Fcond(funcion));
-			} catch (Exception e) {	
-				e.printStackTrace();
+			//} catch (Exception e) {	
+			//	e.printStackTrace();
 
 			}
 //----------------------------------------PRESENTACION AL USUARIO
@@ -67,6 +68,7 @@ public class Main {
 				System.out.println("La operacion aritmetica ingresada fue: ");
 				System.out.println(">>Lisp " + opA.Calculo(programa));
 			}else if(programa.startsWith("(cond")) {
+				System.out.println(">>Lisp " + conds.str(programa));
 			
 			}else if(programa.toLowerCase().startsWith("(atom") || programa.toLowerCase().startsWith("(list") || programa.toLowerCase().startsWith("(equal")) {
 			
