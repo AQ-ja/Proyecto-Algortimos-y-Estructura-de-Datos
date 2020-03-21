@@ -17,12 +17,13 @@ public class Main {
 	    FileReader fr = null;
 	    BufferedReader br = null;
 		String linea, programa = "";
-		ArrayList<ArrayList<String>> Arrpro = new ArrayList<ArrayList<String>>();
-	 	ArrayList<String> funcion = null;
-	 	CalculosAritmeticos opA = new CalculosAritmeticos();
-		 Interprete inter = new Interprete();
-		 NewTryCond fCond = new NewTryCond();
 		FuncionesLisp lisp = new FuncionesLisp();
+		final ArrayList<ArrayList<String>> Arrpro  = new ArrayList<ArrayList<String>>();
+	 	final ArrayList<String> funcion = null;
+	 	final CalculosAritmeticos opA = new CalculosAritmeticos();
+		 final Interprete inter = new Interprete();
+		 final NewTryCond conds = new NewTryCond();
+		 final StringBuffer sb = new StringBuffer();
 		int contador = 0;
 		int contador2 = 0;
 	 	
@@ -55,6 +56,8 @@ public class Main {
 			//} catch (Exception e) {	
 			//	e.printStackTrace();
 
+			}catch (final Exception e){
+	            e.printStackTrace();
 			}
 //----------------------------------------PRESENTACION AL USUARIO
 		System.out.println("------------INTERPRETE LISP AlDiOr--------");
@@ -71,7 +74,7 @@ public class Main {
 				System.out.println("La operacion aritmetica ingresada fue: ");
 				System.out.println(">>Lisp " + opA.Calculo(programa));
 			}else if(programa.startsWith("(cond")) {
-				
+				//System.out.println(">>Lisp " + conds.str(programa));
 			}else if(programa.toLowerCase().startsWith("(atom") || programa.toLowerCase().startsWith("(list") || programa.toLowerCase().startsWith("(equal")) {
 				if (programa.toLowerCase().startsWith("(atom")) {
 					System.out.println(">>Lisp " + lisp.atom(programa));
