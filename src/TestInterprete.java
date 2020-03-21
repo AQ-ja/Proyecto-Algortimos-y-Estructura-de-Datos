@@ -9,9 +9,12 @@ class TestInterprete {
 	CalculosAritmeticos cal = new CalculosAritmeticos();
 	@Test
 	public void testFuncion(){		
-		String resultado = inter.funcion("(DEFUN FTOC (TEMP)(/(- TEMP 32) 1.8))(PRINT (FTOC 5))");
-		if (resultado.equals("-15")) {
-			assertEquals(resultado, -15);
+		String resultado = inter.funcion("(DEFUN FTOC (TEMP)(/(- TEMP 32) 1.8))(PRINT (FTOC 100))");
+		System.out.println(resultado);
+		if (resultado.equals("37.78")) {
+			assertEquals(-15, -15);
+		}else {
+			assertEquals(2, -15);
 		}
 						
 	}
@@ -53,8 +56,11 @@ class TestInterprete {
 	 */
 	public void testCondicionales(){		
 		boolean resultado = lisp.atom("(atom 5)");
+		//boolean resultado = lisp.atom("(atom (list 1 2))");
 		if (resultado) {
 			assertEquals(1, 1);	
+		}else {
+			assertEquals(2, 1);	
 		}
 									
 	}
