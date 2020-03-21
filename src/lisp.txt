@@ -1,4 +1,3 @@
-(DEFUN FTOC (TEMP)
-(/(- TEMP 32) 1.8))
-
-(PRINT (FTOC 100))
+(COND 
+((= 0 0)2)
+((= 2 1 )1))

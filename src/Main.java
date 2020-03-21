@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.naming.spi.DirStateFactory.Result;
@@ -17,13 +18,13 @@ public class Main {
 	    FileReader fr = null;
 	    BufferedReader br = null;
 		String linea, programa = "";
-		FuncionesLisp lisp = new FuncionesLisp();
+		final FuncionesLisp lisp = new FuncionesLisp();
 	 	final ArrayList<String> funcion = null;
 	 	final CalculosAritmeticos opA = new CalculosAritmeticos();
 		 final Interprete inter = new Interprete();
-		 final NewTryCond conds = new NewTryCond();
-		int contador = 0;
-		int contador2 = 0;
+		 final  NewTryCond cond = new NewTryCond();
+		final int contador = 0;
+		final int contador2 = 0;
 	 	
 //-------------------------------------LECTURA DEL PROGRAMA	 	
 		try {
@@ -71,13 +72,18 @@ public class Main {
 			}else if(programa.startsWith("(/") || programa.startsWith("(*") ||programa.startsWith("(-") ||programa.startsWith("(+")) {
 				System.out.println("La operacion aritmetica ingresada fue: ");
 				System.out.println(">>Lisp " + opA.Calculo(programa));
-			}else if(programa.startsWith("(cond")) {
-				System.out.println(">>Lisp "+ conds);
+			}else if(programa.startsWith("COND") || programa.startsWith("cond")) {
+				System.out.println("Entrando a un condicional");
+				String s = programa;
+			    List<ArrayList<String>> myList = new ArrayList<ArrayList<String>>();
+			   System.out.println(">>Lisp " + cond.Fcond(myList));
+            
+				
 			}else if(programa.toLowerCase().startsWith("(atom") || programa.toLowerCase().startsWith("(list") || programa.toLowerCase().startsWith("(equal")) {
 				if (programa.toLowerCase().startsWith("(atom")) {
 					System.out.println(">>Lisp " + lisp.atom(programa));					
 				}else if (programa.toLowerCase().startsWith("(list")) {	
-					String [] lista = lisp.list(programa.substring(6,programa.length()-2));
+					final String [] lista = lisp.list(programa.substring(6,programa.length()-2));
 					System.out.println(">>Lisp " + lista[0]);					
 				}
 			}
